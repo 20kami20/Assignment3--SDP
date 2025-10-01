@@ -3,8 +3,8 @@ public class Main {
         MediaPlayer player = new AudioPlayer();
 
         player.play("mp3", "song1.mp3");
-        player.play("mp4", "video1.mp4");
-        player.play("avi", "movie1.avi");
-        player.play("mkv", "clip.mkv");
+        player.play("wav", "song.wav");
+        player.play("flac", "song3.flac");
+        player.play("mp4", "song4.mp4");
     }
 }
