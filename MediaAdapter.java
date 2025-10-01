@@ -1,20 +1,21 @@
 public class MediaAdapter implements MediaPlayer {
     private AdvancedMediaPlayer advancedMediaPlayer;
 
-    public MediaAdapter(String audioType) {
-        if (audioType.equalsIgnoreCase("mp4")) {
-            advancedMediaPlayer = new Mp4Player();
-        } else if (audioType.equalsIgnoreCase("avi")) {
-            advancedMediaPlayer = new AviPlayer();
+    public MediaAdapter(String type) {
+        if (type.equalsIgnoreCase("wav")) {
+            advancedMediaPlayer = new WavPlayer();
+        } else if (type.equalsIgnoreCase("flac")) {
+            advancedMediaPlayer = new FlacPlayer();
         }
     }
 
     @Override
-    public void play(String audioType, String fileName) {
-        if (audioType.equalsIgnoreCase("mp4")) {
-            advancedMediaPlayer.playMp4(fileName);
-        } else if (audioType.equalsIgnoreCase("avi")) {
-            advancedMediaPlayer.playAvi(fileName);
+    public void play(String type, String file) {
+        if (advancedMediaPlayer != null) {
+            advancedMediaPlayer.playFile(file);
+        } else {
+            System.out.println("Unsupported: " + type);
         }
     }
 }
+
